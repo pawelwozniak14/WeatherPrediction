@@ -1,0 +1,149 @@
+attention_head_size: 3
+categorical_groups: {}
+causal_attention: true
+dropout: 0.20992700598453437
+embedding_labels:
+  constant:
+    const: 0
+  month:
+    '1': 0
+    '10': 1
+    '11': 2
+    '12': 3
+    '2': 4
+    '3': 5
+    '4': 6
+    '5': 7
+    '6': 8
+    '7': 9
+    '8': 10
+    '9': 11
+  precip_type:
+    nan: 0
+    rain: 1
+    snow: 2
+  summary:
+    Breezy: 0
+    Breezy and Dry: 1
+    Breezy and Foggy: 2
+    Breezy and Mostly Cloudy: 3
+    Breezy and Overcast: 4
+    Breezy and Partly Cloudy: 5
+    Clear: 6
+    Dangerously Windy and Partly Cloudy: 7
+    Drizzle: 8
+    Dry: 9
+    Dry and Mostly Cloudy: 10
+    Dry and Partly Cloudy: 11
+    Foggy: 12
+    Humid and Mostly Cloudy: 13
+    Humid and Overcast: 14
+    Humid and Partly Cloudy: 15
+    Light Rain: 16
+    Mostly Cloudy: 17
+    Overcast: 18
+    Partly Cloudy: 19
+    Rain: 20
+    Windy: 21
+    Windy and Dry: 22
+    Windy and Foggy: 23
+    Windy and Mostly Cloudy: 24
+    Windy and Overcast: 25
+    Windy and Partly Cloudy: 26
+embedding_paddings: []
+embedding_sizes:
+  constant: !!python/tuple
+  - 1
+  - 1
+  month: !!python/tuple
+  - 12
+  - 6
+  precip_type: !!python/tuple
+  - 3
+  - 3
+  summary: !!python/tuple
+  - 27
+  - 10
+hidden_continuous_size: 26
+hidden_continuous_sizes: {}
+hidden_size: 30
+learning_rate: 0.001
+log_gradient_flow: false
+log_interval: -1
+log_val_interval: null
+lstm_layers: 1
+max_encoder_length: 72
+monotone_constaints: {}
+optimizer: Ranger
+optimizer_params: null
+output_size: 7
+output_transformer: !!python/object:pytorch_forecasting.data.encoders.EncoderNormalizer
+  center: true
+  center_: !!python/object/apply:numpy.core.multiarray.scalar
+  - &id001 !!python/object/apply:numpy.dtype
+    args:
+    - f8
+    - false
+    - true
+    state: !!python/tuple
+    - 3
+    - <
+    - null
+    - null
+    - null
+    - -1
+    - -1
+    - 0
+  - !!binary |
+    XW/wsCjcJ0A=
+  max_length: null
+  method: standard
+  method_kwargs: {}
+  scale_: !!python/object/apply:numpy.core.multiarray.scalar
+  - *id001
+  - !!binary |
+    8Z1kDXYaI0A=
+  transformation: null
+reduce_on_plateau_min_lr: 1.0e-05
+reduce_on_plateau_patience: 4
+reduce_on_plateau_reduction: 2.0
+share_single_variable_networks: false
+static_categoricals:
+- constant
+static_reals:
+- encoder_length
+time_varying_categoricals_decoder:
+- month
+time_varying_categoricals_encoder:
+- month
+- summary
+- precip_type
+time_varying_reals_decoder:
+- time_idx
+time_varying_reals_encoder:
+- time_idx
+- temperature_c
+- apparent_temperature_c
+- humidity
+- wind_speed_km_h
+- wind_bearing_degrees
+- visibility_km
+- loud_cover
+- pressure_millibars
+weight_decay: 0.0
+x_categoricals:
+- constant
+- month
+- summary
+- precip_type
+x_reals:
+- encoder_length
+- time_idx
+- temperature_c
+- apparent_temperature_c
+- humidity
+- wind_speed_km_h
+- wind_bearing_degrees
+- visibility_km
+- loud_cover
+- pressure_millibars
